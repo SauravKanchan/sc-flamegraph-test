@@ -14,6 +14,9 @@
   ></script>
   <script type="text/javascript">
     var chart = flamegraph().width(960);
+    chart.setColorMapper(function (d, originalColor) {
+      return d.data.highlight ? "green" : originalColor;
+    });
 
     d3.json("data.json")
       .then((data) => {

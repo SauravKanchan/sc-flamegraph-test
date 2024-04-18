@@ -21,7 +21,8 @@
                                 },
                                 {
                                     "name": "_decrement internal jump",
-                                    "value": -4065,
+                                    "value": 4065,
+                                    "highlight": true,
                                     "children": []
                                 }
                             ]

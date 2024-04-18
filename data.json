@@ -1,0 +1,58 @@
+{
+    "name": "CounterTest.fallback",
+    "value": 25841,
+    "children": [
+        {
+            "name": "test_Increment internal jump",
+            "value": 25736,
+            "children": [
+                {
+                    "name": "Counter.fallback",
+                    "value": 17700,
+                    "children": [
+                        {
+                            "name": "increment internal jump",
+                            "value": 18467,
+                            "children": [
+                                {
+                                    "name": "_increment internal jump",
+                                    "value": 22495,
+                                    "children": []
+                                },
+                                {
+                                    "name": "_decrement internal jump",
+                                    "value": -4065,
+                                    "children": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Counter.fallback",
+                    "value": 400,
+                    "children": [
+                        {
+                            "name": "number internal jump",
+                            "value": 198,
+                            "children": [
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "assertEq internal jump",
+                    "value": 2305,
+                    "children": [
+                        {
+                            "name": "vm.assertEq native code",
+                            "value": 80,
+                            "children": [
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

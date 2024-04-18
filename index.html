@@ -27,15 +27,26 @@
     src="https://cdn.jsdelivr.net/npm/d3-flame-graph@4.1.3/dist/d3-flamegraph.min.js"
   ></script>
   <script type="text/javascript">
+    function calculateDepth(node) {
+      // Check if the node has children
+      if (node.children && node.children.length > 0) {
+        // Calculate the depth of each child and find the maximum
+        return 1 + Math.max(...node.children.map(calculateDepth));
+      }
+      // If there are no children, this node is a leaf and its depth is 1
+      return 1;
+    }
     let width = window.innerWidth;
-
-    var chart = flamegraph().width(width);
-    chart.setColorMapper(function (d, originalColor) {
-      return d.data.highlight ? "green" : originalColor;
-    });
+    let height = window.innerHeight;
 
     d3.json("data.json")
       .then((data) => {
+        let depth = calculateDepth(data);
+        let cellHeight = height / depth;
+        var chart = flamegraph().width(width).height(height).cellHeight(cellHeight);
+        chart.setColorMapper(function (d, originalColor) {
+          return d.data.highlight ? "green" : originalColor;
+        });
         d3.select("#chart").datum(data).call(chart);
       })
       .catch((error) => {
